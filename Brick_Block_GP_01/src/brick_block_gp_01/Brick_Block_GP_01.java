@@ -73,11 +73,11 @@ public class Brick_Block_GP_01 {
         userInput = key.next();
         if("y".equals(userInput)){
             System.out.println("The Square Foot of those block is " + brick_sqFt);
+            wallMeasurements();
         } else if ("n".equals(userInput)){
             blockMeasurments();
         } 
     }
      public static void wallMeasurements(){
     }
-
 }
