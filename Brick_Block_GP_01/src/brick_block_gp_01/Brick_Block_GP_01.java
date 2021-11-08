@@ -49,7 +49,10 @@ public class Brick_Block_GP_01 {
                 blockMeasurments();
                 break;
             case 6:
-                
+                if(userChoice == 6)
+                {
+                    System.exit(6);
+                }
                 break;
             default:
                 System.out.println("Enter a valid number choice 1 - 4!");
