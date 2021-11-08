@@ -55,7 +55,7 @@ public class Brick_Block_GP_01 {
                 }
                 break;
             default:
-                System.out.println("Enter a valid number choice 1 - 4!");
+                System.out.println("Enter a valid number choice 1 - 6!");
                 mainMenu();
                 break;
         }
@@ -132,9 +132,6 @@ public class Brick_Block_GP_01 {
     public static void materialsMenu()
     {
         Scanner key = new Scanner(System.in);
-        double perBrick1 = 0.35;
-        double perBrick2 = 0.90;
-        double userBrick;
         int userChoice;
         
         System.out.println("        Materials Menu         ");
