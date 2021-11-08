@@ -2,8 +2,7 @@
  * Group Project for Brick Block
  * Group members: Zachary Fegan, Garrett Davis, Travis Bivins
  * Created: 10-25-2021
- * Updated: 10-25-2021
- * Travis
+ * Updated: 11-8-2021
  */
 package brick_block_gp_01;
 //import javax.swing.*;
@@ -12,13 +11,15 @@ import java.util.Scanner;
 public class Brick_Block_GP_01 {
  
     public static void main(String[] args) {
+        Scanner key = new Scanner(System.in);
+        
         costOfMaterials();
         brickMeasurements();
         blockMeasurments();
         wallMeasurements();
     }
     
-    public static void costOfMaterials()
+    public static void costPerBrick()
     {
         Scanner key = new Scanner(System.in); 
         double perBrick1 = 0.35;
@@ -35,7 +36,7 @@ public class Brick_Block_GP_01 {
         else
         {
             System.out.println("Enter a valid price per brick ($0.35 to $0.90)");
-            costOfMaterials();
+            costPerBrick();
         }
     }
     
@@ -78,6 +79,43 @@ public class Brick_Block_GP_01 {
             blockMeasurments();
         } 
     }
-     public static void wallMeasurements(){
+    public static void wallMeasurements(){
+         
+    }
+     
+    public void materialsMenu()
+    {
+        Scanner key = new Scanner(System.in);
+        double perBrick1 = 0.35;
+        double perBrick2 = 0.90;
+        double userBrick;
+        int userChoice;
+        
+        System.out.println("        Materials Menu         ");
+        System.out.println("===============================");
+        System.out.println("1.  Cost per brick");
+        System.out.println("2.  Cost per bricks");
+        System.out.println("3.  Cost per pallet of bricks");
+        System.out.println("4.  Main Menu");
+        System.out.println();
+        System.out.print("Enter a choice number: ");
+        userChoice = key.nextInt();
+        
+        switch(userChoice)
+        {
+            case 1:
+                costPerBrick();
+                break;
+            case 2:
+                costPerBricks();
+                break;
+            case 3:
+                costPerPalletOfBricks();
+                break;
+            default:
+                System.out.println("Enter a valid number choice 1 - 4!");
+                materialsMenu();
+                break;
+        }
     }
 }
