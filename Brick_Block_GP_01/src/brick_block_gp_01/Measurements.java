@@ -53,7 +53,7 @@ public class Measurements {
         } 
     }
     public static void wallMeasurements(){
-         
+         System.out.println("This is a test");
     }
     public static void wallMeasurementsMisc()
     {
