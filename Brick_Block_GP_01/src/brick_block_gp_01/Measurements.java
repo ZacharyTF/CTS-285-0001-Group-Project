@@ -6,6 +6,7 @@
 package brick_block_gp_01;
 
 
+import static brick_block_gp_01.Brick_Block_GP_01.mainMenu;
 import java.util.Scanner;
 
 /**
@@ -28,7 +29,7 @@ public class Measurements {
         userInput = key.next();
         if("y".equals(userInput)){
             System.out.println("The Square Foot of those bricks is " + brick_sqFt);
-            blockMeasurements();
+            mainMenu();
         } else if ("n".equals(userInput)){
             brickMeasurements();
         }
