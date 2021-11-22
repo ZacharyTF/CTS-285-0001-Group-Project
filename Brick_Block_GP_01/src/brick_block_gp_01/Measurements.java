@@ -14,6 +14,8 @@ import java.util.Scanner;
  * @author davisg0104
  */
 public class Measurements {
+    double wall_sqFt;
+    double hole_sqFt;
     public static void brickMeasurements()
     {
         double brickWidth;
@@ -48,16 +50,51 @@ public class Measurements {
         userInput = key.next();
         if("y".equals(userInput)){
             System.out.println("The Square Foot of those block is " + brick_sqFt);
-            wallMeasurements();
+            mainMenu();
         } else if ("n".equals(userInput)){
             blockMeasurements();
         } 
     }
     public static void wallMeasurements(){
-         System.out.println("This is a test");
+        double wallWidth;
+        double wallLength;
+        Scanner key = new Scanner(System.in); 
+        String userInput;
+        System.out.println("Enter the Length of the wall being used");
+        wallLength = key.nextDouble();
+        System.out.println("Enter the Width of the wall being used");
+        wallWidth = key.nextDouble();
+         double wall_sqFt = wallLength * wallWidth;
+        System.out.println("Just to make sure we have the Length of the wall at " + wallLength + " and the width at " + wallWidth + " is that correct? y/n");
+        userInput = key.next();
+        if("y".equals(userInput)){
+            System.out.println("The Square Foot of the wall is " + wall_sqFt);
+            mainMenu();
+        }else if ("n".equals(userInput)){
+            wallMeasurements();
     }
-    public static void wallMeasurementsMisc()
+    }
+    public  void wallMeasurementsMisc()
     {
-        
+        double holeLength;
+        double holeWidth;
+        Scanner key = new Scanner(System.in); 
+        String userInput;
+        System.out.println("Enter the Length of the hole from the wall that is being used");
+        holeLength = key.nextDouble();
+        System.out.println("Enter the Width of the hole from the wall that is  being used");
+        holeWidth = key.nextDouble();
+        hole_sqFt = holeLength * holeWidth;
+        System.out.println("Just to make sure we have the Length of the wall at " + holeLength + " and the width at " + holeWidth + " is that correct? y/n");
+        userInput = key.next();
+        if("y".equals(userInput)){
+            System.out.println("The Square Foot of the wall is " + hole_sqFt);
+            double gap = wall_sqFt - hole_sqFt;
+            System.out.println("The square foot of the gap in the walls is " + gap);
+            mainMenu();
+        }else if ("n".equals(userInput)){
+            wallMeasurementsMisc();
     }
+    }
+
 }
