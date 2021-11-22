@@ -74,6 +74,7 @@ public class Pricing {
         amountOfBricks = userPallet * userBrick;
         cost = userPallet * userCost;
         System.out.println("Right now we have you marked down for " + userPallet + " pallets for a total of " + amountOfBricks + " bricks for $" + cost);
+        //Receipt.writeToReceipt(name);
     }
     
 }

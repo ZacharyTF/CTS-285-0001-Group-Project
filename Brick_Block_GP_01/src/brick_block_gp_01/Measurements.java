@@ -34,6 +34,7 @@ public class Measurements {
         } else if ("n".equals(userInput)){
             brickMeasurements();
         }
+        
     }
     public static void blockMeasurements() {
         double blockWidth;

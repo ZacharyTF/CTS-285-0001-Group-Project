@@ -5,10 +5,15 @@
  * Updated: 11-8-2021
  */
 package brick_block_gp_01;
+import java.io.IOException;
 import javax.swing.*;
 //import java.io.*;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 public class Brick_Block_GP_01 {
+
+    private static String name;
  
     public static void main(String[] args) {
         getUserName();
@@ -18,10 +23,18 @@ public class Brick_Block_GP_01 {
     {
        JFrame f; 
        f = new JFrame();
-       String name = JOptionPane.showInputDialog(f,"Please Enter your name:");
+       name = JOptionPane.showInputDialog(f,"Please Enter your name:");
        consoleMainMenu();
        return name;
     }
+    
+//    public static void userMainMenu()
+//    {
+//        JFrame f;
+//        f = new JFrame();
+//        
+//    }
+    
     
     public static void consoleMainMenu()
     {
@@ -55,6 +68,13 @@ public class Brick_Block_GP_01 {
                 Measurements.brickMeasurements();
                 break;
             case 5:
+        {
+            //try {
+//                Receipt.writeToReceipt(name);
+//            } catch (IOException ex) {
+//                Logger.getLogger(Brick_Block_GP_01.class.getName()).log(Level.SEVERE, null, ex);
+//            }
+        }
                 Measurements.blockMeasurements();
                 break;
             case 6:

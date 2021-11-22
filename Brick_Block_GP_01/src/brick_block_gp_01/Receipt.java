@@ -5,6 +5,7 @@
  */
 package brick_block_gp_01;
 
+import java.time.LocalDate;
 import java.io.*;
 import java.awt.Desktop;
 
@@ -14,23 +15,25 @@ import java.awt.Desktop;
  */
 
 public class Receipt {
-    public static void writeToReceipt() throws IOException
+    public static void writeToReceipt(String name)throws IOException
     {
+        LocalDate myDate = LocalDate.now();
+        
         FileOutputStream fileStream = null;
         PrintWriter outFS = null;
         
         fileStream = new FileOutputStream(name + ".txt"); //later add the date made of the receipt
         outFS = new PrintWriter(fileStream);
         
-        outFS.println(name + "'s Receipt"); //later add the date that is was made
+        outFS.println(name + "'s Receipt         Made on: " + myDate); //later add the date that is was made
         outFS.println("======================================================");
-        outFS.println(brickType + "      " + pricePerBrick);
-        outFS.println(totalBricks + "       " + totalPriceOfBricks);
-        outFS.println(BusinessName + "        " + totalCostOfServices);
+        outFS.println("Red Brick"/*brickType*/ + "      " + "$0.35 per brick"/*pricePerBrick*/);
+        outFS.println("1500 Bricks in total, "/*totalBricks*/ + "       " + "$525.00"/*totalPriceOfBricks*/);
+        outFS.println("N/A   "/*BusinessName*/  + "        " + "   $0.00"/*totalCostOfServices*/);
         outFS.println("======================================================");
-        outFS.println("                             " + subTotal);
-        outFS.println("                             " + addedTaxes);
-        outFS.println("                             " + total);
+        outFS.println("                             " + "$525.00"/*subTotal*/);
+        outFS.println("                             " + "$2.25"/*addedTaxes*/);
+        outFS.println("                             " + "$527.25"/*total*/);
         
         outFS.close();
         //outFS.println(name);
