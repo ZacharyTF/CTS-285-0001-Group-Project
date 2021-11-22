@@ -12,7 +12,6 @@ import java.awt.Desktop;
  *
  * @author feganz5140
  */
-<<<<<<< HEAD
 
 public class Receipt {
     public static void writeToReceipt() throws IOException
@@ -58,8 +57,6 @@ public class Receipt {
     }
 }
 
-=======
->>>>>>> 9e89b349783457556b99fb0d3aaed49fdd3ee810
 //public class Receipt {
 //    public static void writeToReceipt() throws IOException
 //    {
