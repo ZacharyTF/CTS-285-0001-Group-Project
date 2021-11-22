@@ -88,7 +88,11 @@ public class Measurements {
         userInput = key.next();
         if("y".equals(userInput)){
             System.out.println("The Square Foot of the wall is " + hole_sqFt);
+<<<<<<< HEAD
             consoleMainMenu();
+=======
+            mainMenu();
+>>>>>>> 9e89b349783457556b99fb0d3aaed49fdd3ee810
         }else if ("n".equals(userInput)){
             wallMeasurementsMisc();
     }
