@@ -26,13 +26,13 @@ public class Receipt {
         outFS.println(brickType + "      " + pricePerBrick);
         outFS.println(totalBricks + "       " + totalPriceOfBricks);
         outFS.println(BusinessName + "        " + totalCostOfServices);
-        
-        
-        
-        //outFS.println(name);
+        outFS.println("======================================================");
+        outFS.println("                             " + subTotal);
+        outFS.println("                             " + addedTaxes);
+        outFS.println("                             " + total);
         
         outFS.close();
-        
+        //outFS.println(name);
         displayReceipt(name);
     }
     

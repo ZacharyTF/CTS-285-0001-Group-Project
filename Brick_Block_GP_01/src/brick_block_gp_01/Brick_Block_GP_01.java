@@ -5,21 +5,30 @@
  * Updated: 11-8-2021
  */
 package brick_block_gp_01;
-//import javax.swing.*;
+import javax.swing.*;
 //import java.io.*;
 import java.util.Scanner;
 public class Brick_Block_GP_01 {
  
     public static void main(String[] args) {
-        mainMenu();
+        getUserName();
     }
     
-    public static void mainMenu()
+    public static String getUserName()
+    {
+       JFrame f; 
+       f = new JFrame();
+       String name = JOptionPane.showInputDialog(f,"Please Enter your name:");
+       consoleMainMenu();
+       return name;
+    }
+    
+    public static void consoleMainMenu()
     {
         Scanner key = new Scanner(System.in);
         int userChoice;
         
-        System.out.println("        Main Menu         ");
+        System.out.println("        Console Main Menu         ");
         System.out.println("===============================");
         System.out.println("1.  Measure wall");
         System.out.println("2.  Measure wall with Misc.");
@@ -56,7 +65,7 @@ public class Brick_Block_GP_01 {
                 break;
             default:
                 System.out.println("Enter a valid number choice 1 - 6!");
-                mainMenu();
+                consoleMainMenu();
                 break;
         }
     }
@@ -85,6 +94,9 @@ public class Brick_Block_GP_01 {
                 break;
             case 3:
                 Pricing.costPerPalletOfBricks();
+                break;
+            case 4:
+                consoleMainMenu();
                 break;
             default:
                 System.out.println("Enter a valid number choice 1 - 4!");
