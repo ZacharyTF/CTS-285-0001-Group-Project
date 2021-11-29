@@ -8,7 +8,7 @@ package brick_block_gp_01;
 
 import static brick_block_gp_01.Brick_Block_GP_01.consoleMainMenu;
 import java.util.Scanner;
-
+import javax.swing.*;
 /**
  *
  * @author davisg0104
@@ -92,7 +92,35 @@ public class Measurements {
             consoleMainMenu();
         }else if ("n".equals(userInput)){
             wallMeasurementsMisc();
-    }
+        }
     }
 
+    public static double windowsWallMeasurementsMisc()
+    {
+        double holeLength;
+        double holeWidth; 
+        double hole_sqFt;
+        JFrame f;
+        f = new JFrame();
+        String wallLength = JOptionPane.showInputDialog(f, "Please enter the length of the hole from the wall being used.");
+        holeLength = Double.parseDouble(wallLength);
+        String wallWidth = JOptionPane.showInputDialog(f, "Please enter the Width of the hole from the wall being used.");
+        holeWidth = Double.parseDouble(wallWidth);
+        String userInput = JOptionPane.showInputDialog(f, "Just to make sure we "
+                + "have the Length of the wall at " + holeLength + 
+                " and the width at " + holeWidth + " is that correct? y/n");
+        hole_sqFt = holeLength * holeWidth;
+        if(userInput.equalsIgnoreCase("y"))
+        {
+            
+        }
+        if(userInput.equalsIgnoreCase("n"))
+        {
+            
+        }
+        
+        
+        
+        return hole_sqFt;
+    }
 }

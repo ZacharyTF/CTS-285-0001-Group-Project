@@ -40,7 +40,7 @@ public class Brick_Block_GP_01 {
         }
         if (userChoice.equalsIgnoreCase("windows"))
         {
-            WindowsMainMenu();
+            Menu.MainMenu();
         }
         else
         {
@@ -67,13 +67,6 @@ public class Brick_Block_GP_01 {
         f = new JFrame();
         JOptionPane.showMessageDialog(f,"Please type Console, for console comand window, and Windows for a more user friendly box.");
         userMainMenu();
-    }
-    
-    public static void WindowsMainMenu()
-    {
-        JFrame f;
-        f = new JFrame();
-        
     }
     
     public static void consoleMainMenu()

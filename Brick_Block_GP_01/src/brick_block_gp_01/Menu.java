@@ -36,7 +36,7 @@ public abstract class Menu implements ActionListener{
     );
     buttons[1].addActionListener(new ActionListener()
     {public void actionPerformed(ActionEvent e){
-        JOptionPane.showMessageDialog(buttons[2], "You've chosen Misc Wall");
+        JOptionPane.showMessageDialog(buttons[2], Measurements.windowsWallMeasurementsMisc());
     }}
     );
     buttons[2].addActionListener(new ActionListener()
