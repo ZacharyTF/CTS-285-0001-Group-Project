@@ -108,13 +108,6 @@ public class Brick_Block_GP_01 {
                 Measurements.brickMeasurements();
                 break;
             case 5:
-        {
-            //try {
-//                Receipt.writeToReceipt(name);
-//            } catch (IOException ex) {
-//                Logger.getLogger(Brick_Block_GP_01.class.getName()).log(Level.SEVERE, null, ex);
-//            }
-        }
                 Measurements.blockMeasurements();
                 break;
             case 6:
