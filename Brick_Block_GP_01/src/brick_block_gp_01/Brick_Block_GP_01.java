@@ -33,18 +33,32 @@ public class Brick_Block_GP_01 {
         JFrame f;
         f = new JFrame();
         String userChoice = JOptionPane.showInputDialog(f,"Choose if you want to see the application in console or in windows");
-        switch(userChoice)
+        
+        if (userChoice.equalsIgnoreCase("console"))
         {
-            case "console":
-                consoleMainMenu();
-                break;
-            case "windows":
-                WindowsMainMenu();
-                break;
-            default:
-                ShowErrorMessage();
-                break;
+            consoleMainMenu();
         }
+        if (userChoice.equalsIgnoreCase("windows"))
+        {
+            WindowsMainMenu();
+        }
+        else
+        {
+            ShowErrorMessage();
+        }
+        
+//        switch(userChoice)
+//        {
+//            case "console":
+//                consoleMainMenu();
+//                break;
+//            case "windows":
+//                WindowsMainMenu();
+//                break;
+//            default:
+//                ShowErrorMessage();
+//                break;
+//        }
     }
     
     public static void ShowErrorMessage()
@@ -57,6 +71,8 @@ public class Brick_Block_GP_01 {
     
     public static void WindowsMainMenu()
     {
+        JFrame f;
+        f = new JFrame();
         
     }
     
