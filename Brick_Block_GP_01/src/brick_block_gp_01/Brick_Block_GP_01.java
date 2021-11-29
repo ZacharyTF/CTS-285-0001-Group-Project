@@ -24,17 +24,41 @@ public class Brick_Block_GP_01 {
        JFrame f; 
        f = new JFrame();
        name = JOptionPane.showInputDialog(f,"Please Enter your name:");
-       consoleMainMenu();
+       userMainMenu();
        return name;
     }
     
-//    public static void userMainMenu()
-//    {
-//        JFrame f;
-//        f = new JFrame();
-//        
-//    }
+    public static void userMainMenu()
+    {
+        JFrame f;
+        f = new JFrame();
+        String userChoice = JOptionPane.showInputDialog(f,"Choose if you want to see the application in console or in windows");
+        switch(userChoice)
+        {
+            case "console":
+                consoleMainMenu();
+                break;
+            case "windows":
+                WindowsMainMenu();
+                break;
+            default:
+                ShowErrorMessage();
+                break;
+        }
+    }
     
+    public static void ShowErrorMessage()
+    {
+        JFrame f;
+        f = new JFrame();
+        JOptionPane.showMessageDialog(f,"Please type Console, for console comand window, and Windows for a more user friendly box.");
+        userMainMenu();
+    }
+    
+    public static void WindowsMainMenu()
+    {
+        
+    }
     
     public static void consoleMainMenu()
     {
