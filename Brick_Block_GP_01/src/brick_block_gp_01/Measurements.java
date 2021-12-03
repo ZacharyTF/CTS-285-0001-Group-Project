@@ -100,27 +100,23 @@ public class Measurements {
         double holeLength;
         double holeWidth; 
         double hole_sqFt;
-        JFrame f;
-        f = new JFrame();
-        String wallLength = JOptionPane.showInputDialog(f, "Please enter the length of the hole from the wall being used.");
-        holeLength = Double.parseDouble(wallLength);
-        String wallWidth = JOptionPane.showInputDialog(f, "Please enter the Width of the hole from the wall being used.");
-        holeWidth = Double.parseDouble(wallWidth);
-        String userInput = JOptionPane.showInputDialog(f, "Just to make sure we "
-                + "have the Length of the wall at " + holeLength + 
-                " and the width at " + holeWidth + " is that correct? y/n");
-        hole_sqFt = holeLength * holeWidth;
-        if(userInput.equalsIgnoreCase("y"))
-        {
-            
-        }
-        if(userInput.equalsIgnoreCase("n"))
-        {
-            
-        }
-        
-        
-        
+
+             JTextField _holeLength = new JTextField();
+             JTextField _holeWidth = new JTextField();
+             Object[] fields = {
+                 "Hole Length: ", _holeLength,
+                 "Hole Width: ", _holeWidth,
+             };
+             JOptionPane.showConfirmDialog(null, fields, "Header", JOptionPane.OK_CANCEL_OPTION);
+             holeLength = Integer.parseInt(_holeLength.getText());
+             holeWidth = Integer.parseInt(_holeWidth.getText());
+             hole_sqFt = holeLength * holeWidth;
+             
         return hole_sqFt;
+    }
+    public static double convertFeetToDecimal(double feet, double inches)
+    {
+        inches = inches * 0.083333333f;
+        return feet += inches;
     }
 }
