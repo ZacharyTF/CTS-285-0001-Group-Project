@@ -16,6 +16,8 @@ public class Brick_Block_GP_01 {
     private static String name;
  
     public static void main(String[] args) {
+        MaterialArrays.walls = new Wall[10];
+        MaterialArrays.loadBricks();
         getUserName();
     }
     
