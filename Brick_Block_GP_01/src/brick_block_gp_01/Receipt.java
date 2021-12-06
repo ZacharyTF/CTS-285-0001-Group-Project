@@ -31,15 +31,20 @@ public class Receipt {
         outFS.println("======================================================");
         for (Pallet brickPallet : MaterialArrays.brickPallets)
         {
+            if(brickPallet.Amount > 0)
+            {
             outFS.println(brickPallet.Brick.Name + " pallet: " + brickPallet.Amount);
             outFS.println(" at " + brickPallet.Brick.Price + "$ per brick.");
+            }
         }
         outFS.println("                        Blocks                        ");
         outFS.println("======================================================");
         for (Pallet blockPallet : MaterialArrays.blockPallets)
         {
-            outFS.println(blockPallet.Block.Name + " pallet: " + blockPallet.Amount);
+            if (blockPallet.Amount > 0){
+            outFS.println(blockPallet.Block.Name + ": " + blockPallet.Amount);
             outFS.println(" at " + blockPallet.Block.Price + "$ per block.");
+            }
         }
         outFS.println("Subtotal Price : " + String.format("%.2f", price) + "$");
         outFS.println("Taxes: " + String.format("%.2f",price * .0475));
