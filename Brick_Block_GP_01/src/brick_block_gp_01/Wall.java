@@ -5,6 +5,7 @@
  */
 package brick_block_gp_01;
 
+
 /**
  *
  * @author garre
@@ -33,8 +34,5 @@ public class Wall
      SqFt = sqFt;
      Block = block;
     }
-    public static void GetPrice(Brick brick, Double sqFt)
-    {
-        
-    }
+    
 }

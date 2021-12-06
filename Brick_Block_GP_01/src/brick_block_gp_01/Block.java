@@ -10,5 +10,27 @@ package brick_block_gp_01;
  * @author garre
  */
 public class Block {
+    String Name;
+    String Description;
+    String Color;
+    Double SqInches;
+    Double Price;
+    Double Length;
+    Double Width;
     
+    public Block()
+    {
+        
+    }
+    public Block(String name, String description, String color, Double sqInches,
+            double price, double length, double width)
+    {
+        Name = name;
+        Description = description;
+        Color = color;
+        SqInches = sqInches;
+        Price = price;
+        Length = length;
+        Width = width;
+    }
 }

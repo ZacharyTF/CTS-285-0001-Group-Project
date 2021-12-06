@@ -15,7 +15,7 @@ import java.awt.Desktop;
  */
 
 public class Receipt {
-    public static void writeToReceipt(String name)throws IOException
+    public static void writeToReceipt(String name, Double price)throws IOException
     {
         LocalDate myDate = LocalDate.now();
         
@@ -27,17 +27,53 @@ public class Receipt {
         
         outFS.println(name + "'s Receipt         Made on: " + myDate); //later add the date that is was made
         outFS.println("======================================================");
-        outFS.println("Red Brick"/*brickType*/ + "      " + "$0.35 per brick"/*pricePerBrick*/);
-        outFS.println("1500 Bricks in total, "/*totalBricks*/ + "       " + "$525.00"/*totalPriceOfBricks*/);
-        outFS.println("N/A   "/*BusinessName*/  + "        " + "   $0.00"/*totalCostOfServices*/);
+        outFS.println("                Brick Pallets(500 Bricks)             ");
         outFS.println("======================================================");
-        outFS.println("                             " + "$525.00"/*subTotal*/);
-        outFS.println("                             " + "$2.25"/*addedTaxes*/);
-        outFS.println("                             " + "$527.25"/*total*/);
+        for (Pallet brickPallet : MaterialArrays.brickPallets)
+        {
+            outFS.println(brickPallet.Brick.Name + " pallet: " + brickPallet.Amount);
+            outFS.println(" at " + brickPallet.Brick.Price + "$ per brick.");
+        }
+        outFS.println("                        Blocks                        ");
+        outFS.println("======================================================");
+        for (Pallet blockPallet : MaterialArrays.blockPallets)
+        {
+            outFS.println(blockPallet.Block.Name + " pallet: " + blockPallet.Amount);
+            outFS.println(" at " + blockPallet.Block.Price + "$ per block.");
+        }
+        outFS.println("Subtotal Price : " + String.format("%.2f", price) + "$");
+        outFS.println("Taxes: " + String.format("%.2f",price * .0475));
+        outFS.println("Total: " + String.format("%.2f", price + (price * .0475)));
         
         outFS.close();
         //outFS.println(name);
         displayReceipt(name);
+    }
+    public static void CalculateTotalAmount()
+    {
+        double totalPrice = 0;
+        double totalBrickPrice = 0;
+        double totalBlockPrice = 0;
+        for (Pallet brickPallet : MaterialArrays.brickPallets)
+        {
+            if (brickPallet.Amount > 0)
+            {
+            totalBrickPrice += brickPallet.Amount * brickPallet.Price;
+            }
+        }
+        for (Pallet blockPallet : MaterialArrays.blockPallets)
+        {
+            if (blockPallet.Amount > 0)
+            {totalBlockPrice += blockPallet.Amount * blockPallet.Price;}
+            
+        }
+        totalPrice = totalBrickPrice + totalBlockPrice;
+        try{      
+        writeToReceipt(Brick_Block_GP_01.name, totalPrice);
+        }
+        catch(Exception ex)
+        {System.out.println(ex.toString());}
+        
     }
     
     public static void displayReceipt(String name)

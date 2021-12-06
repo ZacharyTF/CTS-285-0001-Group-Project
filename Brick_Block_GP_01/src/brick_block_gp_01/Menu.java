@@ -25,7 +25,7 @@ public abstract class Menu implements ActionListener{
     JPanel panel = new JPanel();
     panel.setLayout(new GridLayout(3,1));
     String[] buttonTxt = {"Calculate Brick or Blocks needed",
-        "Calculate Price of Bricks or Blocks","Exit"};
+        "Exit"};
     JButton[] buttons = new JButton[buttonTxt.length];
     for (int i = 0; i < buttonTxt.length; i++)
     {
@@ -38,11 +38,6 @@ public abstract class Menu implements ActionListener{
     }}
     );
     buttons[1].addActionListener(new ActionListener()
-    {public void actionPerformed(ActionEvent e){
-        JOptionPane.showMessageDialog(buttons[2], Measurements.windowsWallMeasurementsMisc());
-    }}
-    );
-    buttons[2].addActionListener(new ActionListener()
     {public void actionPerformed(ActionEvent e){
         System.exit(0);
     }}
@@ -78,12 +73,15 @@ public abstract class Menu implements ActionListener{
            if (MaterialArrays.walls[i].Material.equals("Bricks"))
            {
                BrickMenu(i);
+               Pallet.GetPallets(MaterialArrays.walls[i].Brick, MaterialArrays.walls[i].SqFt);
            }
            else
            {
-               BlockMenu();
+               BlockMenu(i);
+               Pallet.GetPallets(MaterialArrays.walls[i].Block, MaterialArrays.walls[i].SqFt);
            }
         }
+        Receipt.CalculateTotalAmount();
 
     }
     //Will take the counter for wall number for window name
@@ -118,7 +116,7 @@ public abstract class Menu implements ActionListener{
             lengthInchField, "Width Feet", widthFeetField, "Width Inches", widthInchField,
             "Number of Holes", holeField, "Building Material", materialBox
         };
-        int option = JOptionPane.showConfirmDialog(null, frameObjects, "Wall " + counter+1 + " inputs",
+        int option = JOptionPane.showConfirmDialog(null, frameObjects, "Wall " + counter + " inputs",
                 JOptionPane.OK_CANCEL_OPTION);
         if (option == JOptionPane.OK_OPTION)
         {
@@ -323,9 +321,116 @@ public abstract class Menu implements ActionListener{
         dialog.setSize(dimension);
         dialog.setVisible(true);
     }
-    public static void BlockMenu()
+    public static void BlockMenu(int count)
     {
+        JDialog dialog = null;
+        Block blockChoice = new Block();
+        JOptionPane optionPane = new JOptionPane();
+        optionPane.setMessage("<html><font size=+2><font color=red>Block"
+                + " Menu</font></html>");
+        optionPane.setMessageType(JOptionPane.DEFAULT_OPTION);
+        JPanel panel = new JPanel();
+        panel.setLayout(new GridLayout(12, 1));
+        //Setup Block Choice Labels
+        JLabel blockLbl = new JLabel("----Block Choice----");
+        JLabel blockName = new JLabel("block Name");
+        JLabel blockDesc = new JLabel("block Description");
+        JLabel blockColor = new JLabel("block Color");
+        JLabel blockSqInch = new JLabel("block Square Inches");
+        JLabel blockPrice = new JLabel("Price per block");
+        //buttons
+        JRadioButton block1Btn = new JRadioButton("block1");
+        JRadioButton block2Btn = new JRadioButton("blocks2");
+        JRadioButton block3Btn = new JRadioButton("blocks3");
+        JRadioButton block4Btn = new JRadioButton("blocks4");
+        JRadioButton block5Btn = new JRadioButton("blocks5");
+        //ButtonGroup to make sure only one button is selected at a time
+        ButtonGroup blockBtns = new ButtonGroup();
+        blockBtns.add(block1Btn);
+        blockBtns.add(block2Btn);
+        blockBtns.add(block3Btn);
+        blockBtns.add(block4Btn);
+        blockBtns.add(block5Btn);
+        //Add panel buttons
+        panel.add(block1Btn);
+        panel.add(block2Btn);
+        panel.add(block3Btn);
+        panel.add(block4Btn);
+        panel.add(block5Btn);
+        //add panel labels
+        panel.add(blockLbl);
+        panel.add(blockName);
+        panel.add(blockDesc);
+        panel.add(blockColor);
+        panel.add(blockSqInch);
+        panel.add(blockPrice);
+        //click event for buttons
+        block1Btn.addActionListener(new ActionListener()
+        {
+         public void actionPerformed(ActionEvent a)
+         {   
+             blockName.setText(MaterialArrays.blocks[0].Description);
+             blockColor.setText(MaterialArrays.blocks[0].Color);
+             blockSqInch.setText(String.format("%.2f", MaterialArrays.blocks[0].SqInches));
+             blockPrice.setText(MaterialArrays.blocks[0].Price.toString());
+             MaterialArrays.walls[count].Block = MaterialArrays.blocks[0];
+         }   
+        });
+        block2Btn.addActionListener(new ActionListener()
+        {
+         public void actionPerformed(ActionEvent a)
+         {   
+             blockName.setText(MaterialArrays.blocks[1].Name);
+             blockDesc.setText(MaterialArrays.blocks[1].Description);
+             blockColor.setText(MaterialArrays.blocks[1].Color);
+             blockSqInch.setText(String.format("%.2f", MaterialArrays.blocks[1].SqInches) + " square inches");
+             blockPrice.setText(MaterialArrays.bricks[1].Price.toString() + "$");
+             MaterialArrays.walls[count].Block = MaterialArrays.blocks[1];
+         }   
+        });
+        block3Btn.addActionListener(new ActionListener()
+        {
+         public void actionPerformed(ActionEvent a)
+         {   
+             blockName.setText(MaterialArrays.blocks[2].Name);
+             blockDesc.setText(MaterialArrays.blocks[2].Description);
+             blockColor.setText(MaterialArrays.blocks[2].Color);
+             blockSqInch.setText(String.format("%.2f", MaterialArrays.blocks[2].SqInches) + " square inches");
+             blockPrice.setText(MaterialArrays.blocks[2].Price.toString() + "$");
+             MaterialArrays.walls[count].Block = MaterialArrays.blocks[2];
+         }   
+        });
+        block4Btn.addActionListener(new ActionListener()
+        {
+         public void actionPerformed(ActionEvent a)
+         {   
+             blockName.setText(MaterialArrays.blocks[3].Name);
+             blockDesc.setText(MaterialArrays.blocks[3].Description);
+             blockColor.setText(MaterialArrays.blocks[3].Color);
+             blockSqInch.setText(String.format("%.2f", MaterialArrays.blocks[3].SqInches) + " square inches");
+             blockPrice.setText(MaterialArrays.blocks[3].Price.toString());
+             MaterialArrays.walls[count].Block = MaterialArrays.blocks[3];
+         }   
+        });
+        block5Btn.addActionListener(new ActionListener()
+        {
+         public void actionPerformed(ActionEvent a)
+         {   
+             blockName.setText(MaterialArrays.blocks[4].Name);
+             blockDesc.setText(MaterialArrays.blocks[4].Description);
+             blockColor.setText(MaterialArrays.blocks[4].Color);
+             blockSqInch.setText(String.format("%.2f", MaterialArrays.blocks[4].SqInches) + " square inches");
+             blockPrice.setText(MaterialArrays.blocks[4].Price.toString() + "$");
+             MaterialArrays.walls[count].Block = MaterialArrays.blocks[4];
+         }   
+        });
         
+        optionPane.setOptionType(JOptionPane.DEFAULT_OPTION);
+        optionPane.add(panel);
+        Dimension dimension = new Dimension(325, 400);
+        dialog = optionPane.createDialog(null, "Block Menu");
+        dialog.setSize(dimension);
+        dialog.setVisible(true);
     }
     
 }

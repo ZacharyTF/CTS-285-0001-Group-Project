@@ -13,11 +13,11 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 public class Brick_Block_GP_01 {
 
-    private static String name;
+    public static String name;
  
     public static void main(String[] args) {
-        MaterialArrays.walls = new Wall[10];
-        MaterialArrays.loadBricks();
+        
+        MaterialArrays.loadMaterials();
         getUserName();
     }
     
@@ -65,6 +65,7 @@ public class Brick_Block_GP_01 {
     
     public static void ShowErrorMessage()
     {
+        
         JFrame f;
         f = new JFrame();
         JOptionPane.showMessageDialog(f,"Please type Console, for console comand window, and Windows for a more user friendly box.");

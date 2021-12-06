@@ -16,18 +16,22 @@ public class Brick {
     String Color;
     Double SqInches;
     Double Price;
+    Double Length;
+    Double Width;
     public Brick()
     {
         
     }
     public Brick(String name, String description, String color, Double sqInches,
-            double price)
+            double price, double length, double width)
     {
         Name = name;
         Description = description;
         Color = color;
         SqInches = sqInches;
         Price = price;
+        Length = length;
+        Width = width;
     }
     
 }
