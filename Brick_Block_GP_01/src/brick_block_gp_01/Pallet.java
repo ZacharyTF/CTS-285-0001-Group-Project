@@ -31,6 +31,7 @@ public class Pallet {
     //Gets pallets from wall and brick choice and puts them into the brickpallets array
     public static void GetPallets(Brick brick, Double wallSqFt)
     {
+        double overage = 0; 
        //set mortar size(3/8)" standard
        Double length = brick.Length + .375;
        Double width = brick.Width + .375;
@@ -38,6 +39,7 @@ public class Pallet {
        Double wallSqIn = wallSqFt * 12;
        Double tempBrickTotal = wallSqIn / brickSqIn;
        //Rounds to an int and return an int
+       tempBrickTotal += overage = (int) Math.rint(tempBrickTotal *.10);
        int pallets = (int) Math.rint(tempBrickTotal / 500.0);
        Double palletPrice =  500 * brick.Price;
        Double wallPrice = palletPrice * pallets;
@@ -52,6 +54,7 @@ public class Pallet {
     }
     public static void GetPallets(Block block, Double wallSqFt)
     {
+        double overage = 0; 
        //set mortar size(3/8)" standard
        Double length = block.Length + .375;
        Double width = block.Width + .375;
@@ -59,6 +62,7 @@ public class Pallet {
        Double wallSqIn = wallSqFt * 12;
        Double tempBlockTotal = wallSqIn / blockSqIn;
        //Rounds to an int and return an int
+       tempBlockTotal += overage = (int) Math.rint(tempBlockTotal *.10);
        int blockAmount = (int) Math.rint(block.Price * tempBlockTotal);
         for (int i = 0; i < MaterialArrays.blockPallets.length; i++)
         {  

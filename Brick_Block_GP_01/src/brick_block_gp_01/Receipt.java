@@ -43,7 +43,7 @@ public class Receipt {
         }
         outFS.println("Subtotal Price : " + String.format("%.2f", price) + "$");
         outFS.println("Taxes: " + String.format("%.2f",price * .0475));
-        outFS.println("Total: " + String.format("%.2f", price + (price * .0475)));
+        outFS.println("Total(10% overage included): " + String.format("%.2f", price + (price * .0475)));
         
         outFS.close();
         //outFS.println(name);
